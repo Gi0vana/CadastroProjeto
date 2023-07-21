@@ -19,17 +19,17 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="?page=home">Cadastro Usuário</a>
+          <a class="nav-link active" aria-current="page" href="?page=novoCadastro">Cadastro Usuário</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="?page=home">Filmes</a>
+          <a class="nav-link active" aria-current="page" href="?page=filme">Filmes</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="?page=home">Categorias</a>
+          <a class="nav-link active" aria-current="page" href="?page=categoria">Categorias</a>
         </li>
         <li class="nav-item">
 
-        <a class="nav-link active" aria-current="page" href="?page=home">Atores</a>
+        <a class="nav-link active" aria-current="page" href="?page=atore">Atores</a>
         </li>
         <li class="nav-item">
 </ul>
@@ -37,6 +37,25 @@
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
+      <?php
+      include("config.php");
+      switch(@$_REQUEST["page"]){
+      case "novoCadastro";
+      include("projetoCadastro/index.php");
+      break;
+      case "filme";
+      include("projetoFilme/index.php");
+      break;
+      case "categoriar";
+      include("salvar-usuario.php");
+      break;
+      case "ator";
+      include("editar-usuario.php");
+      break;
+      default:
+      print "<h1>Bem vindos!</h1>";
+    }
+    ?>
       
     </div>
   </div>
